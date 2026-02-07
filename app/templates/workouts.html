@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Workouts{% endblock %}
+
+{% block content %}
+  <h1>Saved workouts</h1>
+  <p>Your logged workouts, newest first.</p>
+
+  {% if workouts %}
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Exercise</th>
+          <th>Sets</th>
+          <th>Reps</th>
+          <th>Weight (kg)</th>
+        </tr>
+
+        {% for w in workouts %}
+          <tr>
+            <td>{{ w["date"] }}</td>
+            <td>{{ w["exercise"] }}</td>
+            <td>{{ w["sets"] }}</td>
+            <td>{{ w["reps"] }}</td>
+            <td>{{ w["weight"] }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  {% else %}
+    <p>No workouts saved yet.</p>
+    <div class="actions">
+      <a class="btn" href="/">Add your first workout</a>
+    </div>
+  {% endif %}
+{% endblock %}

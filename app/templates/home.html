@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Add Workout{% endblock %}
+
+{% block content %}
+  <h1>Add workout</h1>
+  <p>Enter your workout details and save them to your database.</p>
+
+  <form action="/add" method="post">
+    <div class="form-grid">
+      <div>
+        <label>Date</label>
+        <input type="date" name="date" required>
+      </div>
+
+      <div>
+        <label>Exercise</label>
+        <input type="text" name="exercise" placeholder="e.g. Bench Press" required>
+      </div>
+
+      <div>
+        <label>Sets</label>
+        <input type="number" name="sets" min="1" required>
+      </div>
+
+      <div>
+        <label>Reps</label>
+        <input type="number" name="reps" min="1" required>
+      </div>
+
+      <div>
+        <label>Weight (kg)</label>
+        <input type="number" name="weight" min="0" step="0.5" required>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="submit">Save workout</button>
+      <a class="btn secondary" href="/workouts">View saved workouts</a>
+    </div>
+  </form>
+{% endblock %}
